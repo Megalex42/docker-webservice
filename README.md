@@ -5,6 +5,7 @@ Required setup. Nothing should be required other than docker and docker-compose.
 Commands to start the docker compose files:
 
 docker-compose -f docker-compose.yml up
+
 docker-compose -f docker-compose-prod.yml up
 
 ----------------------------
