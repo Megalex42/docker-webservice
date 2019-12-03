@@ -1,0 +1,5 @@
+FROM alpine
+RUN apk update
+RUN apk add curl
+COPY client.sh /app/
+CMD ash /app/client.sh

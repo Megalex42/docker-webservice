@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    image: megalex42/db
+    ports:
+    - "27017:27017"
+    volumes:
+    - dbdata:/data/db
+    networks:
+    - webservice_network
+
+  webservice:
+    image: megalex42/webservice
+    depends_on:
+    - db
+    networks:
+    - webservice_network
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-testclient
+    depends_on:
+    - db
+    - webservice
+    networks:
+    - webservice_network
+
+volumes:
+  dbdata:
+
+networks:
+  webservice_network: {}

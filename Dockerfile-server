@@ -1,0 +1,7 @@
+FROM alpine
+RUN apk update
+RUN apk add --no-cache python3
+RUN pip3 install pymongo
+COPY server.py /app/
+CMD echo "Starting server"
+CMD python3 /app/server.py
